@@ -1,0 +1,162 @@
+/* PAGE WRAPPER */
+.page-wrapper {
+  font-family: "Poppins", sans-serif;
+  background: #f5f7fb;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* HERO SECTION */
+.hero-section {
+  background: linear-gradient(to right, #4b6cb7, #182848);
+  color: white;
+  padding: 60px 20px 40px 20px;
+  text-align: center;
+}
+
+.hero-content1 h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: -700px;
+}
+
+.hero-content1 p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-left: -540px;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-top: -80px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* GRID CARD CONTAINER */
+.resource-card {
+  background: white;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 25px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  transition: all 0.3s ease;
+  margin: 0px auto 200px;
+}
+
+/* LINK WRAPPER */
+.resource-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* INDIVIDUAL CARD */
+.resource-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 18px;
+  background: #d7d9e0;
+  cursor: pointer;
+  min-height: 160px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.resource-item:hover {
+  background: rgb(254, 254, 254);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  border: 1px solid #e0e6f5;
+}
+
+/* CARD CONTENT */
+.resource-item .left {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.icon {
+  font-size: 32px;
+  color: #4b6cb7;
+}
+
+/* TEXT */
+.resource-item h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.resource-item p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* BUTTON (OPTIONAL) */
+.action-btn {
+  margin-top: 15px;
+  align-self: flex-start;
+
+  background: #4b6cb7;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.action-btn:hover {
+  background: #3a539b;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .resource-card {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title,
+  .trusted-contact {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .resource-item h3 {
+    font-size: 16px;
+  }
+
+  .resource-item p {
+    font-size: 13px;
+  }
+
+  .action-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}

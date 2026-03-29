@@ -1,0 +1,294 @@
+.main-container1 {
+  max-width: 1000px;
+  margin: 20px auto 0; /* no negative margin */
+  padding: 0 20px;
+  flex: 1;
+  overflow-y: auto;
+  min-height: calc(100vh - 100px); /* ensures container is tall enough for scrolling */
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+.floating-action {
+  position: relative;
+  top: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 101; /* ensures it’s above the nav */
+}
+/* HEADER */
+.report-header {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.report-header h1 {
+  font-size: 32px;
+}
+
+.report-header p {
+  opacity: 0.9;
+}
+
+/* CARD */
+.report-card {
+  background: white;
+  width: 100%;
+  max-width: 900px;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  margin: 0px auto 200px;
+}
+
+.step {
+  color: gray;
+  font-size: 14px;
+}
+
+.label {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* BUTTON TYPES */
+.type-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.type-buttons button {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.type-buttons .active {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+}
+
+/* TEXTAREA */
+textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  resize: none;
+  height:120px ;
+}
+
+/* ANONYMOUS */
+.anonymous {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.anonymous span {
+  font-size: 12px;
+  color: gray;
+}
+
+/* TOGGLE SWITCH */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 25px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background: #4e73df;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* BUTTON */
+.next-btn {
+  width: 50%;
+  margin-top: 30px;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4d4d;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 200px;
+  height:50px ;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .report-card {
+    padding: 15px;
+  }
+
+  .report-header h1 {
+    font-size: 24px;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* BUTTON GROUP */
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.back-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background:linear-gradient(to right, #0c1722, #1751a7) ;
+  cursor: pointer;
+  width: 300px;
+  color: #f5f5f5;
+  height: 55px;
+  margin-top: 28px;
+  font-size: 16px;
+}
+
+/* REVIEW BOX */
+.review-box {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+.file-preview {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+.file-preview {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.file-item {
+  width: 80px;
+  height: 80px;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.file-item {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: rgb(32, 20, 20);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.hero-section {
+  background: linear-gradient(to right, #2c3e50, #4ca1af);
+  height: 250px;
+  padding: 40px 60px;
+  color: white;
+}
+.hero-content3 h1 {
+   font-size: 36px; 
+   margin: 0;
+   margin-left: -650px;
+   }
+.hero-content3 p {
+   opacity: 0.9; 
+   margin-top: 10px;
+   margin-left: -700px;
+   }
+.file-item {
+  height: 80px;
+  
+}
+
+.remove-btn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 12px;
+}
