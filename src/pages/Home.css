@@ -51,7 +51,7 @@
   padding: 40px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   width: 1000px;
-   margin: 0px auto 200px;
+  margin: 0px auto 200px;
 }
 
 /* Grid Positioning */
@@ -72,11 +72,26 @@
   gap: 15px;
   cursor: pointer;
   transition: transform 0.2s;
+  max-height: 1000px;
 }
 .card:hover { transform: translateY(-5px); }
-.red-card { background: linear-gradient(135deg, #e74c3c, #c0392b); }
-.purple-card { background: linear-gradient(135deg, #8e44ad, #6c3483); }
-.green-card { background: linear-gradient(135deg, #1abc9c, #16a085); }
+.red-card {
+   background: linear-gradient(135deg, #e74c3c, #c0392b);
+   width: 180px;
+   margin-top: 10px;
+  }
+.purple-card { 
+  background: linear-gradient(135deg, #8e44ad, #6c3483);
+  margin-top: -10px;
+  height: 108px;
+}
+.green-card {
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+  margin-top: 10px;
+  height: 108px;
+  width: 180px;
+  }
+
 .icon-wrapper { background: rgba(255,255,255,0.2); padding: 15px; border-radius: 15px; }
 
 /* List Styles */
@@ -97,57 +112,6 @@
 .status-dot { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; }
 .red-dot { background: #ef4444; }
 .orange-dot { background: #f59e0b; }
-
-/* --- MODAL STYLES --- */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(4px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: white;
-  width: 90%;
-  max-width: 450px;
-  padding: 30px;
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.close-icon { cursor: pointer; color: #666; }
-
-.modal-content textarea {
-  width: 100%;
-  height: 120px;
-  background: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  padding: 15px;
-  margin-top: 10px;
-  font-family: inherit;
-  resize: none;
-}
-
-.submit-btn {
-  width: 100%;
-  background: #1e3a8a;
-  color: white;
-  border: none;
-  padding: 15px;
-  border-radius: 15px;
-  font-weight: bold;
-  margin-top: 20px;
-  cursor: pointer;
-}
 
 /* --- BOTTOM NAV STYLES --- */
 .bottom-nav {
@@ -191,11 +155,12 @@
 
 .floating-action {
   position: relative;
-  top: -25px;
+  top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .red-circle {

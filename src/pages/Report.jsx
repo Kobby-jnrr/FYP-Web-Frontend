@@ -11,7 +11,7 @@ function Report() {
   const [files, setFiles] = useState([]);
   const [formData, setFormData] = useState({ description: "", name: "", email: "" });
 
-  const abuseTypes = ["Cyberbullying", "Online Harassment", "Threats", "Other"];
+  const abuseTypes = [ "Inappropriate content","Sexual Assault",   "Cyberbullying", "Online Harassment", "Threats", "Other"];
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
@@ -35,8 +35,11 @@ function Report() {
     data.append("description", formData.description);
     data.append("anonymous", anonymous);
     if (!anonymous) {
-      data.append("name", formData.name);
+      data.append("firstname", formData.name);
+      data.append("lastname", formData.name);
       data.append("email", formData.email);
+      data.append("password", formData.password);
+      data.append("number", formData.number);
     }
     files.forEach((file) => data.append("files", file));
 
@@ -141,10 +144,20 @@ if (response.status === 201 || response.ok) {
 
               {!anonymous && (
                 <>
-                  <p className="label">Name</p>
-                  <input type="text" name="name" value={formData.name} onChange={handleChange} />
+                  <p className="label">FirstName</p>
+                  <input type="text" name="firstname" value={formData.name} onChange={handleChange} />
+
+                  <p className="label">LastName</p>
+                  <input type="text" name="lastname" value={formData.name} onChange={handleChange} />
+
                   <p className="label">Email</p>
                   <input type="email" name="email" value={formData.email} onChange={handleChange} />
+
+                  <p className="label">Password</p>
+                  <input type="pass" name="password" value={formData.password} onChange={handleChange} />
+
+                  <p className="label">Phone number</p>
+                  <input type="number" name="number" value={formData.name} onChange={handleChange} />
                 </>
               )}
 

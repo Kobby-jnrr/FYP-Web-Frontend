@@ -1,0 +1,58 @@
+.counselling-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.counsellor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.counsellor-card {
+  background-color: #fff;
+  padding: 20px;
+  width: 350px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+}
+
+.counsellor-photo {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+}
+
+.counsellor-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.counsellor-phone {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.counsellor-background {
+  font-size: 14px;
+  color: #555;
+  text-align: justify;
+  line-height: 1.6;
+}

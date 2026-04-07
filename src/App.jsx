@@ -8,6 +8,7 @@ import SafetyTips from "./pages/SafetyTips";
 import Counselling from "./pages/Counselling";
 import Policies from "./pages/Policies";
 import Hotlines from "./pages/Hotlines";
+import Support from "./pages/Support";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/counselling" element={<Counselling />} />
         <Route path="/policies" element={<Policies />} />
         <Route path="/hotlines" element={<Hotlines />} />
+        <Route path="/support" element={<Support/>} />
       </Routes>
     </div>
   );

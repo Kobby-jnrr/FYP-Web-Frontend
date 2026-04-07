@@ -59,12 +59,15 @@ function Resource() {
 
           <Link to="/hotlines" className="resource-link">
             <div className="right">
+              <div className="resource-item">
               <span className="icon">📞</span>
               <div>
                 <h3>School Helpline</h3>
                 <p>1-800-123-4567</p>
               </div>
+              
               <button className="action-btn">Call</button>
+            </div>
             </div>
           </Link>
         </div>

@@ -27,6 +27,7 @@ const Profile = () => {
     { title: "Notifications", description: "Manage notification preferences" },
     { title: "Privacy Settings", description: "Adjust your privacy options" },
     { title: "Theme", description: "Switch between light and dark mode", isTheme: true },
+    { title: "Logout", description: "sign out from account" },
   ];
 
   return (

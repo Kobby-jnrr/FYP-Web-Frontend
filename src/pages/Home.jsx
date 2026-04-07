@@ -36,21 +36,26 @@ const Home = () => {
           {/* Action Grid */}
           <div className="action-grid">
             {/* CLICKABLE REPORT BUTTON */}
+             <NavLink to="/report" className="floating-action">
             <div className="card red-card" onClick={() => setIsModalOpen(true)}>
               <div className="icon-wrapper"><AlertCircle size={40} /></div>
               <span>Report Incident</span>
             </div>
+            </NavLink>
             
             <div className="card purple-card">
               <div className="icon-wrapper"><ClipboardList size={40} /></div>
               <span>My Reports</span>
             </div>
             
+            <NavLink to="/Support-Team" className="floating-action">
             <div className="card green-card">
-              <div className="icon-wrapper"><LifeBuoy size={40} /></div>
+               <div className="icon-wrapper"><LifeBuoy size={40} /></div>
               <span>Get Support</span>
-            </div>
+             </div>
+             </NavLink>
           </div>
+        
 
           {/* Recent Reports */}
           <div className="section-header">
@@ -65,23 +70,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* 4. THE POPUP MODAL (Interactive Part) */}
-      {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h3>Submit New Report</h3>
-              <X className="close-icon" onClick={() => setIsModalOpen(false)} />
-            </div>
-            <form onSubmit={handleSubmit}>
-              <label>Describe the incident</label>
-              <textarea placeholder="Tell us what happened..." required></textarea>
-              <button type="submit" className="submit-btn">Send Report</button>
-            </form>
-          </div>
-        </div>
-      )}
-
       {/* 5. BOTTOM NAVIGATION BAR */}
       <div className="bottom-nav">
         <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
@@ -95,12 +83,12 @@ const Home = () => {
        </NavLink>
         
         {/* BIG CENTER ACTION BUTTON */}
-        <div className="floating-action" onClick={() => setIsModalOpen(true)}>
-          <div className="red-circle">
-            <AlertCircle size={25} />
-          </div>
-          <span className="float-label">Report</span>
-        </div>
+        <NavLink to="/report" className="floating-action">
+                 <div className="red-circle">
+                   <AlertCircle size={30} />
+                 </div>
+                 <span className="float-label">Report</span>
+               </NavLink>
 
         <NavLink to="/Resource" className={({ isActive }) => isActive ? "active" : ""}>
     <BookOpen size={25} />
