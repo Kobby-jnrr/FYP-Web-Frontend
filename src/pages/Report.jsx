@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { Home, BookOpen, AlertCircle, MessageSquare, User } from "lucide-react";
 import "./Report.css";
 import "./Home.css";
+import { SPEAKUP_API } from "../config";
+
 
 function Report() {
   const [step, setStep] = useState(1);
@@ -41,11 +43,11 @@ function Report() {
     files.forEach((file) => data.append("files", file));
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/report/", { method: "POST", body: data });
-     const result = await response.json().catch(() => null);
+      const response = await fetch(`${SPEAKUP_API}/report`, { method: "POST", body: data });
+      const result = await response.json().catch(() => null);
 
-if (response.status === 201 || response.ok) {
-  alert("Report submitted successfully!");
+      if (response.status === 201 || response.ok) {
+        alert("Report submitted successfully!");
         setStep(1);
         setFiles([]);
         setFormData({ description: "", name: "", email: "" });
