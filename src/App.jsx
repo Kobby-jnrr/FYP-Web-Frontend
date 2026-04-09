@@ -9,6 +9,9 @@ import Counselling from "./pages/Counselling";
 import Policies from "./pages/Policies";
 import Hotlines from "./pages/Hotlines";
 import Support from "./pages/Support";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ViewReports from "./pages/admin/ViewReports";
 
 function App() {
   return (
@@ -21,6 +24,7 @@ function App() {
           <Link to="/report">Report</Link>
           <Link to="/resource">Resource</Link>
           <Link to="/profile">Profile</Link>
+          <Link to="/admin/login">Admin</Link>
         </div>
       </nav>
 
@@ -33,7 +37,10 @@ function App() {
         <Route path="/counselling" element={<Counselling />} />
         <Route path="/policies" element={<Policies />} />
         <Route path="/hotlines" element={<Hotlines />} />
-        <Route path="/support" element={<Support/>} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/reports" element={<ViewReports />} />
       </Routes>
     </div>
   );

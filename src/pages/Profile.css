@@ -2,7 +2,8 @@
 .profile-container {
   max-width: 500px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 20px 20px 120px;
+  /* Added 120px bottom padding */
   font-family: "Poppins", sans-serif;
 }
 
@@ -41,10 +42,11 @@
 .edit-avatar-btn:hover {
   background: #3a5dc8;
 }
-.hero-content h1{
-font-size: 45px;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-margin-left: -650px;
+
+.hero-content h1 {
+  font-size: 45px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-left: -650px;
 }
 
 .profile-info h2 {
@@ -80,7 +82,7 @@ margin-left: -650px;
 
 .detail-card:hover {
   background: white;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
   transform: translateY(-3px);
 }
 
@@ -134,11 +136,11 @@ margin-left: -650px;
   transition: 0.3s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background: #4e73df;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   transform: translateX(20px);
 }
 
@@ -162,6 +164,42 @@ input:checked + .slider:before {
     padding: 15px;
   }
 }
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0 25px;
+  border-top: 1px solid #eee;
+  z-index: 9999;
+}
+
+.bottom-nav a {
+  background: none;
+  border: none;
+  color: #235db4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.bottom-nav a:hover {
+  color: #e63946;
+}
+
+.bottom-nav span {
+  font-size: 10px;
+  font-weight: bold;
+}
+
 .floating-action1 {
   position: relative;
   top: -25px;
@@ -178,7 +216,16 @@ input:checked + .slider:before {
   border-radius: 50%;
   box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
   transition: transform 0.2s;
+  z-index: 10000;
 }
 
-.red-circle:hover { transform: scale(1.1); }
-.float-label { color: #ef4444; font-size: 10px; font-weight: bold; margin-top: 5px; }
+.red-circle1:hover {
+  transform: scale(1.1);
+}
+
+.float-label {
+  color: #ef4444;
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 5px;
+}

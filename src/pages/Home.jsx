@@ -1,22 +1,14 @@
 import React, { useState } from 'react';
-import { 
-  Home as HomeIcon, BookOpen, AlertCircle, MessageSquare, 
-  User, Bell, ChevronRight, ClipboardList, LifeBuoy, X 
+import {
+  Home as HomeIcon, BookOpen, AlertCircle, MessageSquare,
+  User, Bell, ChevronRight, ClipboardList, LifeBuoy, X
 } from 'lucide-react';
 import './Home.css';
 import { NavLink } from "react-router-dom";
 
 const Home = () => {
   // --- STATE ---
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
-
-  // Function to handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Report Submitted Successfully!");
-    setIsModalOpen(false);
-  };
 
   return (
     <div className="page-wrapper">
@@ -32,30 +24,30 @@ const Home = () => {
       {/* 3. Main Container (The Overlap) */}
       <div className="main-container">
         <div className="white-card">
-          
+
           {/* Action Grid */}
           <div className="action-grid">
             {/* CLICKABLE REPORT BUTTON */}
-             <NavLink to="/report" className="floating-action">
-            <div className="card red-card" onClick={() => setIsModalOpen(true)}>
-              <div className="icon-wrapper"><AlertCircle size={40} /></div>
-              <span>Report Incident</span>
-            </div>
+            <NavLink to="/report" className="floating-action">
+              <div className="card red-card">
+                <div className="icon-wrapper"><AlertCircle size={40} /></div>
+                <span>Report Incident</span>
+              </div>
             </NavLink>
-            
+
             <div className="card purple-card">
               <div className="icon-wrapper"><ClipboardList size={40} /></div>
               <span>My Reports</span>
             </div>
-            
+
             <NavLink to="/Support-Team" className="floating-action">
-            <div className="card green-card">
-               <div className="icon-wrapper"><LifeBuoy size={40} /></div>
-              <span>Get Support</span>
-             </div>
-             </NavLink>
+              <div className="card green-card">
+                <div className="icon-wrapper"><LifeBuoy size={40} /></div>
+                <span>Get Support</span>
+              </div>
+            </NavLink>
           </div>
-        
+
 
           {/* Recent Reports */}
           <div className="section-header">
@@ -73,32 +65,27 @@ const Home = () => {
       {/* 5. BOTTOM NAVIGATION BAR */}
       <div className="bottom-nav">
         <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
-    <HomeIcon size={25} />
-    <span>Home</span>
-         </NavLink>
-        
-        <NavLink to="/report" className={({ isActive }) => isActive ? "active" : ""}>
-    <MessageSquare size={25} />
-    <span>Report</span>
-       </NavLink>
-        
+          <HomeIcon size={25} />
+          <span>Home</span>
+        </NavLink>
+
         {/* BIG CENTER ACTION BUTTON */}
         <NavLink to="/report" className="floating-action">
-                 <div className="red-circle">
-                   <AlertCircle size={30} />
-                 </div>
-                 <span className="float-label">Report</span>
-               </NavLink>
+          <div className="red-circle">
+            <AlertCircle size={30} />
+          </div>
+          <span className="float-label">Report</span>
+        </NavLink>
 
         <NavLink to="/Resource" className={({ isActive }) => isActive ? "active" : ""}>
-    <BookOpen size={25} />
-    <span>Resource</span>
-  </NavLink>
+          <BookOpen size={25} />
+          <span>Resource</span>
+        </NavLink>
 
         <NavLink to="/Profile" className={({ isActive }) => isActive ? "active" : ""}>
-    <User size={25} />
-    <span>profile</span>
-  </NavLink>
+          <User size={25} />
+          <span>profile</span>
+        </NavLink>
       </div>
     </div>
   );
