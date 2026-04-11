@@ -82,8 +82,9 @@
   }
 .purple-card { 
   background: linear-gradient(135deg, #8e44ad, #6c3483);
-  margin-top: -10px;
+  margin-top: 10px;
   height: 108px;
+  width: 180px;
 }
 .green-card {
   background: linear-gradient(135deg, #1abc9c, #16a085);

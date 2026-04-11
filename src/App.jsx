@@ -9,6 +9,8 @@ import Counselling from "./pages/Counselling";
 import Policies from "./pages/Policies";
 import Hotlines from "./pages/Hotlines";
 import Support from "./pages/Support";
+import Myreports from "./pages/Myreports"
+import AdminChat from "./pages/AdminChat";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
         <Route path="/policies" element={<Policies />} />
         <Route path="/hotlines" element={<Hotlines />} />
         <Route path="/support" element={<Support/>} />
+        <Route path="/myreports" element={<Myreports/>} />
+        <Route path="/admin" element={<AdminChat />} />
       </Routes>
     </div>
   );

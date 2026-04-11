@@ -43,12 +43,14 @@ const Home = () => {
             </div>
             </NavLink>
             
+            <NavLink to="/myreports" className="floating-action">
             <div className="card purple-card">
               <div className="icon-wrapper"><ClipboardList size={40} /></div>
               <span>My Reports</span>
             </div>
+            </NavLink>
             
-            <NavLink to="/Support-Team" className="floating-action">
+            <NavLink to="/support" className="floating-action">
             <div className="card green-card">
                <div className="icon-wrapper"><LifeBuoy size={40} /></div>
               <span>Get Support</span>

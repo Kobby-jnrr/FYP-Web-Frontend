@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
-import "./Support.css";
 import { io } from "socket.io-client";
+import "./Support.css";
 
-// CONNECT TO BACKEND
 const socket = io("http://localhost:5000");
 
-const Support = () => {
+const AdminChat = () => {
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
 
-  // FIXED ROOM (we’ll make this dynamic later per user)
+  // ADMIN ROOM (you can change this later per user)
   const room = "support_room";
 
-  // JOIN ROOM + RECEIVE MESSAGES
   useEffect(() => {
+    // JOIN AS ADMIN
     socket.emit("join", {
-      role: "user",
+      role: "admin",
       room: room,
     });
 
+    // RECEIVE MESSAGES
     socket.on("receive_message", (data) => {
       setChat((prev) => [...prev, data]);
     });
@@ -30,29 +30,25 @@ const Support = () => {
   const sendMessage = () => {
     if (message.trim() === "") return;
 
-    const msgData = {
+    socket.emit("send_message", {
       room: room,
       text: message,
-      sender: "user",
+      sender: "admin",
       time: new Date().toLocaleTimeString(),
-    };
+    });
 
-    socket.emit("send_message", msgData);
-
-    // optional: show instantly in UI
-  
     setMessage("");
   };
 
   return (
     <div className="support-container">
-      <h1>💬 Live Support Chat</h1>
+      <h1>🧑‍💻 Admin Support Panel</h1>
 
       <div className="chat-box">
         {chat.map((msg, index) => (
           <div
             key={index}
-            className={msg.sender === "user" ? "chat user" : "chat bot"}
+            className={msg.sender === "admin" ? "chat user" : "chat bot"}
           >
             <p>{msg.text}</p>
             <small>{msg.time}</small>
@@ -63,7 +59,7 @@ const Support = () => {
       <div className="chat-input">
         <input
           type="text"
-          placeholder="Type message..."
+          placeholder="Reply as admin..."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
@@ -73,4 +69,4 @@ const Support = () => {
   );
 };
 
-export default Support;
+export default AdminChat;

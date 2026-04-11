@@ -41,7 +41,7 @@ function Report() {
       data.append("lastname", formData.name);
       data.append("email", formData.email);
       data.append("password", formData.password);
-      data.append("number", formData.number);
+      data.append("number", formData.telephone);
     }
     files.forEach((file) => data.append("files", file));
 
@@ -159,7 +159,7 @@ function Report() {
                   <input type="pass" name="password" value={formData.password} onChange={handleChange} />
 
                   <p className="label">Phone number</p>
-                  <input type="number" name="number" value={formData.name} onChange={handleChange} />
+                  <input type="tel" name="phone" pattern="[0-9]{10}" value={formData.phone} onChange={handleChange} />
                 </>
               )}
 
