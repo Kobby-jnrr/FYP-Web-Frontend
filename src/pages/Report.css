@@ -1,10 +1,13 @@
 .main-container1 {
   max-width: 1000px;
-  margin: 20px auto 0; /* no negative margin */
-  padding: 0 20px;
+  margin: 20px auto 0;
+  /* no negative margin */
+  padding: 0 20px 120px;
+  /* Added bottom padding for nav */
   flex: 1;
   overflow-y: auto;
-  min-height: calc(100vh - 100px); /* ensures container is tall enough for scrolling */
+  min-height: calc(100vh - 100px);
+  /* ensures container is tall enough for scrolling */
 }
 
 .bottom-nav {
@@ -17,9 +20,10 @@
   justify-content: space-around;
   align-items: center;
   background: #fff;
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-  z-index: 100;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
 }
+
 .floating-action {
   position: relative;
   top: -20px;
@@ -27,8 +31,10 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  z-index: 101; /* ensures it’s above the nav */
+  z-index: 101;
+  /* ensures it’s above the nav */
 }
+
 /* HEADER */
 .report-header {
   color: white;
@@ -51,7 +57,7 @@
   max-width: 900px;
   padding: 25px;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   margin: 0px auto 200px;
 }
 
@@ -95,7 +101,7 @@ textarea {
   border-radius: 10px;
   border: 1px solid #ccc;
   resize: none;
-  height:120px ;
+  height: 120px;
 }
 
 /* ANONYMOUS */
@@ -146,11 +152,11 @@ textarea {
   transition: 0.3s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background: #4e73df;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   transform: translateX(24px);
 }
 
@@ -166,7 +172,7 @@ input:checked + .slider:before {
   font-size: 16px;
   cursor: pointer;
   margin-left: 200px;
-  height:50px ;
+  height: 50px;
 }
 
 /* RESPONSIVE */
@@ -199,7 +205,7 @@ input {
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
-  background:linear-gradient(to right, #0c1722, #1751a7) ;
+  background: linear-gradient(to right, #0c1722, #1751a7);
   cursor: pointer;
   width: 300px;
   color: #f5f5f5;
@@ -215,11 +221,13 @@ input {
   border-radius: 10px;
   margin-top: 15px;
 }
+
 .file-preview {
   margin-top: 10px;
   font-size: 14px;
   color: #333;
 }
+
 .file-preview {
   display: flex;
   gap: 10px;
@@ -258,25 +266,29 @@ input {
   cursor: pointer;
   font-size: 12px;
 }
+
 .hero-section {
   background: linear-gradient(to right, #2c3e50, #4ca1af);
   height: 250px;
   padding: 40px 60px;
   color: white;
 }
+
 .hero-content3 h1 {
-   font-size: 36px; 
-   margin: 0;
-   margin-left: -650px;
-   }
+  font-size: 36px;
+  margin: 0;
+  margin-left: -650px;
+}
+
 .hero-content3 p {
-   opacity: 0.9; 
-   margin-top: 10px;
-   margin-left: -700px;
-   }
+  opacity: 0.9;
+  margin-top: 10px;
+  margin-left: -700px;
+}
+
 .file-item {
   height: 80px;
-  
+
 }
 
 .remove-btn {

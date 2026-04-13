@@ -2,6 +2,7 @@
   background-color: #f0f2f5;
   min-height: 100vh;
   font-family: sans-serif;
+  padding-bottom: 120px; /* Space for fixed bottom nav */
 }
 
 /* Navbar */
@@ -125,7 +126,7 @@
   align-items: center;
   padding: 10px 0 25px; /* Extra padding for mobile bars */
   border-top: 1px solid #eee;
-  z-index: 900;
+  z-index: 9999; /* Ensure it stays on top */
 }
 
 .bottom-nav a {
