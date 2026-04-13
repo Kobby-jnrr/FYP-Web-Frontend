@@ -60,14 +60,14 @@ function Resource() {
           <Link to="/hotlines" className="resource-link">
             <div className="right">
               <div className="resource-item">
-              <span className="icon">📞</span>
-              <div>
-                <h3>School Helpline</h3>
-                <p>1-800-123-4567</p>
+                <span className="icon">📞</span>
+                <div>
+                  <h3>School Helpline</h3>
+                  <p>1-800-123-4567</p>
+                </div>
+
+                <button className="action-btn">Call</button>
               </div>
-              
-              <button className="action-btn">Call</button>
-            </div>
             </div>
           </Link>
         </div>
@@ -80,11 +80,6 @@ function Resource() {
           <span>Home</span>
         </NavLink>
 
-        <NavLink to="/report" className={({ isActive }) => (isActive ? "active" : "")}>
-          <BookOpen size={24} />
-          <span>Report</span>
-        </NavLink>
-
         {/* BIG CENTER ACTION BUTTON */}
         <NavLink to="/report" className="floating-action">
           <div className="red-circle">
@@ -94,7 +89,7 @@ function Resource() {
         </NavLink>
 
         <NavLink to="/resource" className={({ isActive }) => (isActive ? "active" : "")}>
-          <MessageSquare size={24} />
+          <BookOpen size={24} />
           <span>Resource</span>
         </NavLink>
 

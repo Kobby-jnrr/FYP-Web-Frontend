@@ -38,7 +38,7 @@ const Profile = () => {
           <h1>Profile</h1>
         </div>
       </div>
-      
+
       <div className="main-container">
         <div className="report-card">
           <div className="profile-container">
@@ -89,11 +89,6 @@ const Profile = () => {
           <span>Home</span>
         </NavLink>
 
-        <NavLink to="/report" className={({ isActive }) => (isActive ? "active" : "")}>
-          <BookOpen size={24} />
-          <span>Report</span>
-        </NavLink>
-
         {/* BIG CENTER ACTION BUTTON */}
         <NavLink to="/report" className="floating-action1">
           <div className="red-circle1">
@@ -102,9 +97,9 @@ const Profile = () => {
           <span className="float-label">Report</span>
         </NavLink>
 
-        <NavLink to="/report" className={({ isActive }) => (isActive ? "active" : "")}>
-          <MessageSquare size={24} />
-          <span>Report</span>
+        <NavLink to="/resource" className={({ isActive }) => (isActive ? "active" : "")}>
+          <BookOpen size={24} />
+          <span>Resource</span>
         </NavLink>
 
         <NavLink to="/profile" className={({ isActive }) => (isActive ? "active" : "")}>

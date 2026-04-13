@@ -13,7 +13,7 @@ function Report() {
   const [files, setFiles] = useState([]);
   const [formData, setFormData] = useState({ description: "", name: "", email: "" });
 
-  const abuseTypes = [ "Inappropriate content","Sexual Assault",   "Cyberbullying", "Online Harassment", "Threats", "Other"];
+  const abuseTypes = ["Inappropriate content", "Sexual Assault", "Cyberbullying", "Online Harassment", "Threats", "Other"];
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
@@ -197,18 +197,13 @@ function Report() {
           <span>Home</span>
         </NavLink>
 
-        <NavLink to="/report" className={({ isActive }) => isActive ? "active" : ""}>
-          <MessageSquare size={24} />
-          <span>Report</span>
-        </NavLink>
-
         {/* FLOATING BUTTON */}
-        <div className="floating-action" onClick={() => alert("Report button clicked")}>
+        <NavLink to="/report" className="floating-action">
           <div className="red-circle">
             <AlertCircle size={30} />
           </div>
           <span className="float-label">Report</span>
-        </div>
+        </NavLink>
 
         <NavLink to="/resource" className={({ isActive }) => isActive ? "active" : ""}>
           <BookOpen size={24} />

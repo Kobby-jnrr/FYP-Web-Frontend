@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Report from "./pages/Report";
 import Resource from "./pages/Resource";
@@ -11,6 +11,15 @@ import Hotlines from "./pages/Hotlines";
 import Support from "./pages/Support";
 import Myreports from "./pages/Myreports"
 import AdminChat from "./pages/AdminChat";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ViewReports from "./pages/admin/ViewReports";
+import ReportDetail from "./pages/admin/ReportDetail";
+
+const ProtectedRoute = ({ children }) => {
+  const token = localStorage.getItem("adminToken");
+  return token ? children : <Navigate to="/admin/login" />;
+};
 
 function App() {
   return (
@@ -23,6 +32,7 @@ function App() {
           <Link to="/report">Report</Link>
           <Link to="/resource">Resource</Link>
           <Link to="/profile">Profile</Link>
+          <Link to="/admin/login" style={{ color: "#ef4444", fontWeight: "bold" }}>Admin</Link>
         </div>
       </nav>
 
@@ -35,9 +45,51 @@ function App() {
         <Route path="/counselling" element={<Counselling />} />
         <Route path="/policies" element={<Policies />} />
         <Route path="/hotlines" element={<Hotlines />} />
-        <Route path="/support" element={<Support/>} />
-        <Route path="/myreports" element={<Myreports/>} />
-        <Route path="/admin" element={<AdminChat />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/myreports" element={<Myreports />} />
+
+        {/* Admin Routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/reports"
+          element={
+            <ProtectedRoute>
+              <ViewReports />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/reports/:id"
+          element={
+            <ProtectedRoute>
+              <ReportDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/chat"
+          element={
+            <ProtectedRoute>
+              <AdminChat />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );
