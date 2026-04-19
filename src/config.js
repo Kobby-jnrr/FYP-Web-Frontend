@@ -1,1 +1,1 @@
-export const SPEAKUP_API = import.meta.env.VITE_API_URL;
+export const SPEAKUP_API = "http://localhost:5000";

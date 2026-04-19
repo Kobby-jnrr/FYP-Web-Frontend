@@ -31,38 +31,50 @@ function Report() {
     setFiles((prevFiles) => prevFiles.filter((_, index) => index !== indexToRemove));
   };
 
-  const handleSubmit = async () => {
-    const data = new FormData();
-    data.append("type", selectedType);
-    data.append("description", formData.description);
-    data.append("anonymous", anonymous);
-    if (!anonymous) {
-      data.append("firstname", formData.name);
-      data.append("lastname", formData.name);
-      data.append("email", formData.email);
-      data.append("password", formData.password);
-      data.append("number", formData.telephone);
-    }
-    files.forEach((file) => data.append("files", file));
-
-    try {
-      const response = await fetch(`${SPEAKUP_API}/report`, { method: "POST", body: data });
-      const result = await response.json().catch(() => null);
-
-      if (response.status === 201 || response.ok) {
-        alert("Report submitted successfully!");
-        setStep(1);
-        setFiles([]);
-        setFormData({ description: "", name: "", email: "" });
-        setAnonymous(false);
-      } else {
-        alert("Error submitting report");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Server error");
-    }
+const handleSubmit = async () => {
+  const payload = {
+    type: selectedType,
+    description: formData.description,
+    anonymous: anonymous,
+    firstname: formData.firstname,
+    lastname: formData.lastname,
+    email: formData.email,
+    phone: formData.phone
   };
+
+  try {
+    const response = await fetch(`${SPEAKUP_API}/report`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      alert("Report submitted successfully!");
+      setStep(1);
+      setFiles([]);
+      setFormData({
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
+        phone: "",
+        description: ""
+      });
+      setAnonymous(false);
+    } else {
+      alert("Error submitting report");
+      console.log(result);
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Server error");
+  }
+};
 
   return (
     <div className="page-wrapper">
@@ -147,10 +159,10 @@ function Report() {
               {!anonymous && (
                 <>
                   <p className="label">FirstName</p>
-                  <input type="text" name="firstname" value={formData.name} onChange={handleChange} />
+                  <input type="text" name="firstname" value={formData.firstname} onChange={handleChange} />
 
                   <p className="label">LastName</p>
-                  <input type="text" name="lastname" value={formData.name} onChange={handleChange} />
+                  <input type="text" name="lastname" value={formData.lastname} onChange={handleChange} />
 
                   <p className="label">Email</p>
                   <input type="email" name="email" value={formData.email} onChange={handleChange} />
