@@ -9,9 +9,6 @@ import Counselling from "./pages/Counselling";
 import Policies from "./pages/Policies";
 import Hotlines from "./pages/Hotlines";
 import Myreports from "./pages/Myreports"
-<<<<<<< HEAD
-
-=======
 import AdminChat from "./pages/AdminChat";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -22,7 +19,6 @@ const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("adminToken");
   return token ? children : <Navigate to="/admin/login" />;
 };
->>>>>>> 1691aa6241ccdad8c5561a03829be2d87d07784a
 
 function App() {
   return (
@@ -48,9 +44,6 @@ function App() {
         <Route path="/counselling" element={<Counselling />} />
         <Route path="/policies" element={<Policies />} />
         <Route path="/hotlines" element={<Hotlines />} />
-<<<<<<< HEAD
-        <Route path="/myreports" element={<Myreports/>} />
-=======
         <Route path="/support" element={<Support />} />
         <Route path="/myreports" element={<Myreports />} />
 
@@ -96,7 +89,6 @@ function App() {
             </ProtectedRoute>
           }
         />
->>>>>>> 1691aa6241ccdad8c5561a03829be2d87d07784a
       </Routes>
     </div>
   );
