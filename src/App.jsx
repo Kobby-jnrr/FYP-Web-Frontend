@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Report from "./pages/Report";
+import About from "./pages/About";
 import Resource from "./pages/Resource";
 import Profile from "./pages/Profile";
 import SafetyTips from "./pages/SafetyTips";
@@ -40,6 +41,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/report" element={<Report />} />
+        <Route path="/about" element={<About />} />
         <Route path="/resource" element={<Resource />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/safety-tips" element={<SafetyTips />} />

@@ -71,9 +71,9 @@ const Home = () => {
           <span>Home</span>
         </NavLink>
 
-        <NavLink to="/report" className={({ isActive }) => isActive ? "active" : ""}>
+        <NavLink to="/about" className={({ isActive }) => isActive ? "active" : ""}>
           <MessageSquare size={25} />
-          <span>Report</span>
+          <span>About</span>
         </NavLink>
 
         {/* BIG CENTER ACTION BUTTON */}
