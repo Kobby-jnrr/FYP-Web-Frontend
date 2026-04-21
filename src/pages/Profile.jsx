@@ -89,6 +89,11 @@ const Profile = () => {
           <span>Home</span>
         </NavLink>
 
+         <NavLink to="/report" className={({ isActive }) => isActive ? "active" : ""}>
+                  <MessageSquare size={25} />
+                  <span>Report</span>
+                </NavLink>
+                
         {/* BIG CENTER ACTION BUTTON */}
         <NavLink to="/report" className="floating-action1">
           <div className="red-circle1">

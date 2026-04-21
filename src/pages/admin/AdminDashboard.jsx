@@ -1,60 +1,90 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./Admin.css";
-import { FileText, CheckCircle, Clock } from "lucide-react";
+// src/pages/Dashboard.js
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { ClipboardCheck, Clock, Flag, CheckCircle, ShieldCheck, ArrowRight } from 'lucide-react';
+import './Dashboard.css';
+
+// Component for Status Cards
+const StatusCard = ({ icon, count, label, color }) => (
+    <div className={`status-card status-card-${color}`}>
+        <div className="card-icon-wrapper">
+            {icon}
+        </div>
+        <div className="card-info">
+            <span className="card-count">{count}</span>
+            <span className="card-label">{label}</span>
+        </div>
+    </div>
+);
+
+// Component for a line in Recent Reports
+const RecentReportItem = ({ title, details, time, colorClass }) => (
+    <div className="recent-report-item">
+        <div className="report-item-left">
+            <span className={`status-dot ${colorClass}-dot`}></span>
+            <div className="report-item-text">
+                <span className="report-title">{title}</span>
+                <span className="report-details">{details}</span>
+            </div>
+        </div>
+        <span className="report-time">{time}</span>
+    </div>
+);
 
 const AdminDashboard = () => {
-    const [stats, setStats] = useState([
-        { label: "Total Reports", value: 0, color: "#3b82f6", icon: <FileText /> },
-        { label: "Pending", value: 0, color: "#f59e0b", icon: <Clock /> },
-        { label: "Resolved", value: 0, color: "#10b981", icon: <CheckCircle /> },
-    ]);
+    // Mock Data based on image
+    const statusData = [
+        { icon: <ClipboardCheck size={28} color="#2563EB" />, count: 12, label: "Total Reports", color: "blue" },
+        { icon: <Clock size={28} color="#D97706" />, count: 8, label: "Pending Review", color: "amber" },
+        { icon: <Flag size={28} color="#DC2626" />, count: 2, label: "Need Attention", color: "red" },
+        { icon: <CheckCircle size={28} color="#166534" />, count: 5, label: "Resolved", color: "green" },
+    ];
 
-    useEffect(() => {
-        fetch("http://localhost:5000/api/reports")
-            .then(res => res.json())
-            .then(data => {
-                const total = data.length;
-                const pending = data.filter(r => r.status === "Pending").length;
-                const resolved = data.filter(r => r.status === "Resolved").length;
-                setStats([
-                    { label: "Total Reports", value: total, color: "#3b82f6", icon: <FileText /> },
-                    { label: "Pending", value: pending, color: "#f59e0b", icon: <Clock /> },
-                    { label: "Resolved", value: resolved, color: "#10b981", icon: <CheckCircle /> },
-                ]);
-            })
-            .catch(err => console.error("Error fetching stats:", err));
-    }, []);
+    const recentReportsData = [
+        { title: "Verbal Abuse in Classroom", details: "Class 9 - Anonymous", time: "2 hours ago", colorClass: "red" },
+        { title: "Bullying in Playground", details: "Class 8 - Riya Sharma", time: "1 day ago", colorClass: "amber" },
+        { title: "Inappropriate Behavior", details: "Class 10 - Anonymous", time: "2 days ago", colorClass: "blue" },
+        { title: "Resolved: Physical Threat", details: "Class 7 - Arjun Mehta", time: "3 days ago", colorClass: "green" },
+    ];
 
     return (
-        <div className="admin-wrapper">
-            <header className="admin-header">
-                <h1>📊 Admin Dashboard</h1>
-                <p>Overview of campus safety and incident reports.</p>
+        <div className="dashboard-container">
+            <header className="page-header">
+                <h1 className="page-title">Dashboard</h1>
+                <p className="page-subtitle">Welcome back, Admin!</p>
             </header>
 
-            <div className="admin-stats-grid">
-                {stats.map((stat, index) => (
-                    <div key={index} className="stat-card">
-                        <div className="stat-icon" style={{ backgroundColor: `${stat.color}22`, color: stat.color }}>
-                            {stat.icon}
-                        </div>
-                        <div className="stat-info">
-                            <h3>{stat.label}</h3>
-                            <div className="value">{stat.value}</div>
-                        </div>
-                    </div>
-                ))}
-            </div>
+            <section className="status-grid">
+                {statusData.map((data, index) => <StatusCard key={index} {...data} />)}
+            </section>
 
-            <div className="admin-actions" style={{ marginTop: "30px", display: "flex", gap: "20px" }}>
-                <Link to="/admin/reports" className="btn-view" style={{ textDecoration: "none" }}>
-                    📋 View All Reports
-                </Link>
-                <Link to="/admin/chat" className="btn-view" style={{ backgroundColor: "#8b5cf6", textDecoration: "none" }}>
-                    💬 Support Chat
-                </Link>
-            </div>
+            <section className="dashboard-content-layout">
+                {/* Left Panel: Recent Reports */}
+                <div className="content-panel recent-reports-panel">
+                    <div className="panel-header">
+                        <h2 className="panel-title">Recent Reports</h2>
+                        <NavLink to="/admin/report" className="view-all-link">
+                            View All Reports <ArrowRight size={16} />
+                        </NavLink>
+                    </div>
+                    <div className="reports-list">
+                        {recentReportsData.map((data, index) => <RecentReportItem key={index} {...data} />)}
+                    </div>
+                </div>
+
+                {/* Right Panel: CTA Callout */}
+                <div className="content-panel cta-callout-panel">
+                    <div className="cta-content">
+                        <div className="cta-icon-wrapper">
+                            <ShieldCheck size={48} color="#2563EB" />
+                        </div>
+                        <h2 className="cta-title">Keep Students Safe</h2>
+                        <p className="cta-text">
+                            Review reports and take action to create a safer school environment.
+                        </p>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };

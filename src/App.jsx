@@ -5,6 +5,7 @@ import Report from "./pages/Report";
 import Resource from "./pages/Resource";
 import Profile from "./pages/Profile";
 import SafetyTips from "./pages/SafetyTips";
+import Support from "./pages/Support";
 import Counselling from "./pages/Counselling";
 import Policies from "./pages/Policies";
 import Hotlines from "./pages/Hotlines";
@@ -12,8 +13,9 @@ import Myreports from "./pages/Myreports"
 import AdminChat from "./pages/AdminChat";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
-import ViewReports from "./pages/admin/ViewReports";
-import ReportDetail from "./pages/admin/ReportDetail";
+import Layout from './components/Layout';
+import AdminReport from './pages/admin/AdminReport';
+import './App.css';
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("adminToken");
@@ -46,9 +48,10 @@ function App() {
         <Route path="/hotlines" element={<Hotlines />} />
         <Route path="/support" element={<Support />} />
         <Route path="/myreports" element={<Myreports />} />
-
         {/* Admin Routes */}
+        
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<Layout />}>
         <Route
           path="/admin"
           element={
@@ -57,6 +60,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        
         <Route
           path="/admin/dashboard"
           element={
@@ -66,21 +70,14 @@ function App() {
           }
         />
         <Route
-          path="/admin/reports"
+          path="/admin/report"
           element={
             <ProtectedRoute>
-              <ViewReports />
+              <AdminReport/>
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/admin/reports/:id"
-          element={
-            <ProtectedRoute>
-              <ReportDetail />
-            </ProtectedRoute>
-          }
-        />
+
         <Route
           path="/admin/chat"
           element={
@@ -89,6 +86,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        </Route>
       </Routes>
     </div>
   );

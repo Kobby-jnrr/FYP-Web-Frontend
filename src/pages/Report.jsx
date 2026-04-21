@@ -209,6 +209,11 @@ const handleSubmit = async () => {
           <span>Home</span>
         </NavLink>
 
+         <NavLink to="/report" className={({ isActive }) => isActive ? "active" : ""}>
+                  <MessageSquare size={25} />
+                  <span>Report</span>
+                </NavLink>
+
         {/* FLOATING BUTTON */}
         <NavLink to="/report" className="floating-action">
           <div className="red-circle">

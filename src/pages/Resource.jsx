@@ -79,6 +79,11 @@ function Resource() {
           <Home size={24} />
           <span>Home</span>
         </NavLink>
+        
+         <NavLink to="/report" className={({ isActive }) => isActive ? "active" : ""}>
+                  <MessageSquare size={25} />
+                  <span>Report</span>
+                </NavLink>
 
         {/* BIG CENTER ACTION BUTTON */}
         <NavLink to="/report" className="floating-action">

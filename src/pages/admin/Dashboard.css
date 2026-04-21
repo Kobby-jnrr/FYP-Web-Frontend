@@ -1,0 +1,214 @@
+/* src/pages/Dashboard.css */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    color: var(--text-primary);
+    text-align: left;
+}
+
+.page-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Status Grid */
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Equal width columns */
+    gap: 20px;
+}
+
+.status-card {
+    background-color: var(--bg-white);
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border: 1px solid #E2E8F066; /* Subtle border */
+    transition: box-shadow 0.2s;
+}
+
+.status-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.card-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Subtle background tints matching icons from image */
+.status-card-blue .card-icon-wrapper { background-color: #2563EB14; }
+.status-card-amber .card-icon-wrapper { background-color: #D9770614; }
+.status-card-red .card-icon-wrapper { background-color: #DC262614; }
+.status-card-green .card-icon-wrapper { background-color: #16653414; }
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-count {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.card-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+/* Dashboard Content Split Layout */
+.dashboard-content-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr; /* Larger left panel */
+    gap: 20px;
+}
+
+.content-panel {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    border: 1px solid #E2E8F066;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Recent Reports Panel */
+.panel-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.panel-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.view-all-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent-blue);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.1s;
+}
+
+.view-all-link:hover {
+    color: #1D4ED8;
+}
+
+.reports-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.recent-report-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+
+.recent-report-item:last-child {
+    border-bottom: none;
+}
+
+.recent-report-item:hover {
+    background-color: #f9fafb;
+}
+
+.report-item-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 5px; /* Alignment fix */
+}
+
+/* Status colors for dots from image */
+.red-dot { background-color: #EF4444; }
+.amber-dot { background-color: #F59E0B; }
+.blue-dot { background-color: #3B82F6; }
+.green-dot { background-color: #10B981; }
+
+.report-item-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.report-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.report-details {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.report-time {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* CTA Callout Panel */
+.cta-callout-panel {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #EFF6FF; /* Faint blue background tint */
+}
+
+.cta-content {
+    max-width: 280px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta-icon-wrapper {
+    margin-bottom: 15px;
+}
+
+.cta-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.cta-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
