@@ -156,7 +156,12 @@ function Support() {
           <Home size={24} />
           <span>Home</span>
         </NavLink>
-
+ 
+        <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
+          <MessageCircle size={24} />
+          <span>About</span>
+        </NavLink>
+        
         <NavLink to="/report" className="floating-action">
           <div className="red-circle">
             <AlertCircle size={30} />
