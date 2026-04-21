@@ -1,14 +1,11 @@
 .policies-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 25px;
+  max-width: 1500px;
+  padding: 20px;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
   line-height: 1.7;
 }
-
 .policies-container h1 {
   font-size: 28px;
   margin-bottom: 20px;
@@ -39,6 +36,7 @@
 .policies-container ul {
   margin-left: 20px;
   margin-top: 10px;
+  font-size: 20px
 }
 
 .policies-container li {
@@ -64,18 +62,21 @@
 .flip-card {
   width: 350px;
   height: 260px;
-  perspective: 1000px;
+  perspective: 1200px;
+  position: relative;
+  transform-style: preserve-3d;
 }
 
 .flip-front img {
   width: 100%;
-  height: 300px;      /* 👈 controls image height */
+  height: 100%;      /* 👈 controls image height */
   object-fit: contain;
   display: block;
   position: absolute;
   top: 0;
   left: 0;
   object-fit: cover;
+  inset: 0;
 }
 
 /* optional: prevent overflow */
@@ -90,6 +91,7 @@
   transition: transform 0.8s;
   transform-style: preserve-3d;
   position: relative;
+  will-change: transform;
 }
 
 /* Hover flip */
@@ -100,6 +102,9 @@
 /* Front & back */
 .flip-front,
 .flip-back {
+  top: 0;
+  left: 0;
+  margin-top: -10px;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -110,14 +115,16 @@
   justify-content: center;
   align-items: center;
   padding: 15px;
+  box-sizing: border-box;
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 /* Back side */
 .flip-back {
-  background: rgb(39, 50, 107);
-  color: #fcfbfb;
+  background: rgb(85, 177, 217);
+  color:white;
   transform: rotateY(180deg);
+  font-size: 20px;
 }
 
 .image-hero {
@@ -136,7 +143,6 @@
 }
 /* dark overlay for text readability */
 .hero-image::before {
-  content: "";
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.4);
@@ -146,3 +152,4 @@
   position: relative;
   z-index: 1;
 }
+

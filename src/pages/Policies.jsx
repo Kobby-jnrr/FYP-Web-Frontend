@@ -3,8 +3,7 @@ import "./Policies.css";
 
 function Policies() {
   return (
-    <div style={{ padding: "20px", lineHeight: "1.6" }}>
-      <h1>Policies & Safety Information</h1>
+   <div className="policies-container">
         <div className="image-hero">
               <img src="african.jpg" alt="" />
             </div>
@@ -15,7 +14,7 @@ function Policies() {
       </p>
 
       <a
-        href="https://www.sexualviolence.ie/safety-message"
+        href="https://news.ucc.edu.gh/sexual-harassment-policy-is-not-to-intimidate-anybody-00x0"
         target="_blank"
         rel="noreferrer"
       >
@@ -45,7 +44,7 @@ function Policies() {
       </p>
 
       <a
-        href="https://www.ucc.ie/en/edi/speakout/terminology/"
+        href="https://acecor.ucc.edu.gh/publication/sexual-harassment-policy-2023"
         target="_blank"
         rel="noreferrer"
       >

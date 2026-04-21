@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./Admin.css";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Simple static login for Phase 1/2
+
     if (username === "admin" && password === "admin123") {
       localStorage.setItem("adminToken", "dummy-admin-token");
       navigate("/admin/dashboard");
@@ -23,7 +26,9 @@ const AdminLogin = () => {
     <div className="admin-login-container">
       <div className="login-card">
         <h2>🛡️ Admin Login</h2>
+
         <form onSubmit={handleLogin}>
+          {/* Username */}
           <div className="form-group">
             <label>Username</label>
             <input
@@ -33,17 +38,39 @@ const AdminLogin = () => {
               required
             />
           </div>
+
+          {/* Password with eye toggle */}
           <div className="form-group">
             <label>Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+
+            <div className="password-wrapper">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+
+              <span
+                className="toggle-password"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
           </div>
+
+          {/* Forgot password as LINK */}
+          <div className="forgot-password">
+            <Link to="/forgot-password">Forgot Password?</Link>
+          </div>
+
+          {/* Error */}
           {error && <p className="error-message">{error}</p>}
-          <button type="submit" className="login-btn">Login</button>
+
+          <button type="submit" className="login-btn">
+            Login
+          </button>
         </form>
       </div>
     </div>
